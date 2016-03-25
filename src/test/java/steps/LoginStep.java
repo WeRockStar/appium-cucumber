@@ -1,12 +1,24 @@
 package steps;
 
+import core.BaseSettings;
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import io.appium.java_client.android.AndroidDriver;
 
 public class LoginStep {
+
+    AndroidDriver driver;
+
+    @Before
+    public void setUp() throws Throwable {
+        driver = BaseSettings.getDriver();
+    }
+
     @Given("^I am on \"([^\"]*)\" page$")
-    public void i_am_on_page(String arg1) throws Throwable {
+    public void i_am_on_page(String pageName) throws Throwable {
 
     }
 
@@ -30,4 +42,8 @@ public class LoginStep {
 
     }
 
+    @After
+    public void tearDown() throws Throwable {
+        driver.quit();
+    }
 }

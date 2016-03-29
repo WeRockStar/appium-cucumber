@@ -45,7 +45,7 @@ public class LoginStep {
     }
 
     @Then("^I should see message \"([^\"]*)\"$")
-    public void i_should_see_message(String message) throws Throwable {
+    public void i_should_see_message_welcome(String message) throws Throwable {
         WebElement dialogMessage = driver.findElement(By.id("android:id/message"));
         assertEquals(message, dialogMessage.getText());
     }
